@@ -141,7 +141,7 @@ const onLoaded = (element) => {
 };
 
 const instance = new Loadeer('data-lazyload', {
-    root: document.querySelector('#app')
+    root: document.querySelector('#app'),
     rootMargin: '10px 0px',
     threshold: 0.1,
     onLoaded
