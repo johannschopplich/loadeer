@@ -5,12 +5,12 @@ export default function <T extends Element>(
   root: Element | Document = document
 ): Array<T> {
   if (isString(selector)) {
-    [...root.querySelectorAll(selector)];
+    return [...root.querySelectorAll<T>(selector)];
   }
 
   if (selector instanceof Element) {
     return [selector];
   }
 
-  return <Array<T>>[...selector];
+  return [...selector];
 }
