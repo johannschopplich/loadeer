@@ -140,11 +140,11 @@ const onLoaded = (element) => {
   console.log("Lazily loaded element,", element);
 };
 
-const instance = new Loadeer('data-lazyload', {
-    root: document.querySelector('#app'),
-    rootMargin: '10px 0px',
-    threshold: 0.1,
-    onLoaded
+const instance = new Loadeer("data-lazyload", {
+  root: document.querySelector("#app"),
+  rootMargin: "10px 0px",
+  threshold: 0.1,
+  onLoaded,
 });
 
 instance.observe();
@@ -167,14 +167,14 @@ Defaults to `[data-lazyload]`. Allowed types are:
 
 #### LoadeerOptions
 
-> Note: Every property is optional to set.
+> Note: Every property is optional to pass to the Loadeer.js constructor.
 
-| Option       | Default            | Type                                               | Description                                                                                           |
-| ------------ | ------------------ | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `root`       | `document`         | `Element`, `Document`, `null`, `undefined`         | The container within elements will be lazily loaded.                                                  |
-| `rootMargin` | `0px`, `undefined` | `string`                                           | See [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin). |
-| `threshold`  | `0`                | `number`, `number[]`, `undefined`                  | See [`thresholds`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/thresholds). |
-| `onLoaded`   | `undefined`        | `(element: HTMLImageElement) => void`, `undefined` | Custom function to run after each image is loaded.                                                    |
+| Option       | Default     | Type                                               | Description                                                                                           |
+| ------------ | ----------- | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `root`       | `document`  | `Element`, `Document`, `null`, `undefined`         | The container within elements will be lazily loaded.                                                  |
+| `rootMargin` | `0px`       | `string`, `undefined`                              | See [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin). |
+| `threshold`  | `0`         | `number`, `number[]`, `undefined`                  | See [`thresholds`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/thresholds). |
+| `onLoaded`   | `undefined` | `(element: HTMLImageElement) => void`, `undefined` | Custom function to run after each image is loaded.                                                    |
 
 ## SEO
 
