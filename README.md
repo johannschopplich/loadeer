@@ -21,6 +21,7 @@ Loadeer.js is intended to be used with images.
 ### Key Features
 
 - 🍃 **Zero dependencies**: 0.7kb minified & brotli
+- 🏎 **Auto initialize**: with the `init` script attribute
 - 🪄 **Sizing**: Automatically calculates the `sizes` attribute
 - 🔧 **Customizable**: Use `data` attributes for image sources
 - 🔍 **SEO-friendly**: Detects e.g. Google Bot and preloads all images
@@ -140,7 +141,7 @@ const onLoaded = (element) => {
   console.log("Lazily loaded element,", element);
 };
 
-const instance = new Loadeer("data-lazyload", {
+const instance = new Loadeer("[data-lazyload]", {
   root: document.querySelector("#app"),
   rootMargin: "10px 0px",
   threshold: 0.1,
