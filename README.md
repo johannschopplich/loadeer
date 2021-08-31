@@ -173,7 +173,7 @@ Defaults to `[data-lazyload]`. Allowed types are:
 | ------------ | ------------------ | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | `root`       | `document`         | `Element`, `Document`, `null`, `undefined`         | The container within elements will be lazily loaded.                                                  |
 | `rootMargin` | `0px`, `undefined` | `string`                                           | See [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin). |
-| `threshold`  | `0`                | `number`, `number[]`, `undefined`                  | See [`thresholds`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/thresholds)  |
+| `threshold`  | `0`                | `number`, `number[]`, `undefined`                  | See [`thresholds`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/thresholds). |
 | `onLoaded`   | `undefined`        | `(element: HTMLImageElement) => void`, `undefined` | Custom function to run after each image is loaded.                                                    |
 
 ## SEO
