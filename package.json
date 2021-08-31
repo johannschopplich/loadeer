@@ -21,6 +21,7 @@
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "npm run lint -- --fix",
     "cleanup": "prettier --write \"src/**/*.ts\"",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s --commit-path .",
     "prepare": "husky install",
     "prepublishOnly": "tsc --noEmit && npm run build"
   },
@@ -53,8 +54,11 @@
   },
   "homepage": "https://github.com/johannschopplich/loadeer#readme",
   "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "@typescript-eslint/eslint-plugin": "^4.30.0",
     "@typescript-eslint/parser": "^4.30.0",
+    "conventional-changelog-cli": "^2.1.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^7.0.2",
