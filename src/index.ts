@@ -17,7 +17,7 @@ export interface LoadeerOptions {
 /**
  * Tiny, performant, SEO-friendly lazy loading library
  */
-export class Loadeer<T extends HTMLImageElement> {
+export default class Loadeer<T extends HTMLImageElement> {
   public readonly observer: IntersectionObserver;
 
   constructor(
