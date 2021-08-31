@@ -1,6 +1,6 @@
 {
   "name": "loadeer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tiny, performant, SEO-friendly lazy loading library",
   "files": [
     "dist"
@@ -21,7 +21,7 @@
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "npm run lint -- --fix",
     "cleanup": "prettier --write \"src/**/*.ts\"",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s --commit-path .",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "prepare": "husky install",
     "prepublishOnly": "tsc --noEmit && npm run build"
   },

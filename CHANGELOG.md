@@ -1,0 +1,13 @@
+## [1.0.1](https://github.com/johannschopplich/loadeer/compare/v1.0.0...v1.0.1) (2021-08-31)
+
+
+### Bug Fixes
+
+* string selector query selection ([8a57a0d](https://github.com/johannschopplich/loadeer/commit/8a57a0d32b72684b547603ea15c5073340939e11))
+
+
+
+# 1.0.0 (2021-08-31)
+
+
+
