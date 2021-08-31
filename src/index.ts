@@ -8,7 +8,7 @@ import {
 import { debounceFn, toElementsArray } from "./utils/index";
 
 export interface LoadeerOptions {
-  root?: IntersectionObserverInit["root"];
+  root?: Element | Document;
   rootMargin?: IntersectionObserverInit["rootMargin"];
   threshold?: IntersectionObserverInit["threshold"];
   onLoaded?: (element: HTMLImageElement) => void;
@@ -17,23 +17,18 @@ export interface LoadeerOptions {
 /**
  * Tiny, performant, SEO-friendly lazy loading library
  */
-export class Loadeer {
+export class Loadeer<T extends HTMLImageElement> {
   public readonly observer: IntersectionObserver;
 
   constructor(
     protected readonly selector:
       | string
-      | HTMLImageElement
-      | Array<HTMLImageElement>
-      | NodeListOf<HTMLImageElement> = "[data-lazyload]",
+      | T
+      | Array<T>
+      | NodeListOf<T> = "[data-lazyload]",
     protected readonly options: LoadeerOptions = {}
   ) {
-    const {
-      root = document,
-      rootMargin = "0px",
-      threshold = 0,
-      onLoaded,
-    } = this.options;
+    const { root, rootMargin = "0px", threshold = 0, onLoaded } = this.options;
 
     this.observer = new IntersectionObserver(onIntersection(onLoaded), {
       root,
@@ -43,10 +38,7 @@ export class Loadeer {
   }
 
   public observe(): void {
-    const elements = toElementsArray<HTMLImageElement>(
-      this.selector,
-      this.options.root ?? document
-    );
+    const elements = toElementsArray(this.selector, this.options?.root);
 
     for (const element of elements) {
       if (isLoaded(element)) continue;
@@ -64,7 +56,7 @@ export class Loadeer {
     window.addEventListener("resize", debounced);
   }
 
-  public triggerLoad(element: HTMLImageElement): void {
+  public triggerLoad(element: T): void {
     if (isLoaded(element)) return;
 
     onLoad(element);
