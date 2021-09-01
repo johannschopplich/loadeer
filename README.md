@@ -70,9 +70,9 @@ loadeer.observe();
 
 The short CDN URLs are meant for prototyping. For production usage, use a fully resolved CDN URL to avoid resolving and redirect cost:
 
-- Global build: https://unpkg.com/loadeer@1.0.1/dist/loadeer.iife.js
+- Global build: https://unpkg.com/loadeer@1.0.3/dist/loadeer.iife.js
   - Exposes `Loadeer` global property, supports auto initializing
-- ESM build: https://unpkg.com/loadeer@1.0.1/dist/loadeer.es.js
+- ESM build: https://unpkg.com/loadeer@1.0.3/dist/loadeer.es.js
   - Must be used with `<script type="module">`
 
 ## Usage
