@@ -12,7 +12,7 @@ export interface LoadeerOptions {
   root?: Element | Document;
   rootMargin?: string;
   threshold?: number | number[];
-  onLoaded?: (element: HTMLImageElement) => void;
+  onLoaded?: <T extends Element>(element: T) => void;
 }
 
 /**
