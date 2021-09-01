@@ -6,6 +6,7 @@ import {
   onResize,
 } from "./partials/index";
 import { debounceFn, toElementsArray } from "./utils/index";
+import type { Arrayable } from "@antfu/utils";
 
 export interface LoadeerOptions {
   root?: Element | Document;
@@ -23,8 +24,7 @@ export default class Loadeer<T extends HTMLImageElement> {
   constructor(
     protected readonly selector:
       | string
-      | T
-      | Array<T>
+      | Arrayable<T>
       | NodeListOf<T> = "[data-lazyload]",
     protected readonly options: LoadeerOptions = {}
   ) {

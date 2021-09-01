@@ -65,7 +65,7 @@
     "lint-staged": "^11.1.2",
     "prettier": "2.3.2",
     "typescript": "^4.4.2",
-    "vite": "^2.5.2"
+    "vite": "^2.5.3"
   },
   "dependencies": {
     "@antfu/utils": "^0.3.0"

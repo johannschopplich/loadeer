@@ -1,16 +1,17 @@
-import { isString } from "@antfu/utils";
+import { isString, toArray } from "@antfu/utils";
+import type { Arrayable } from "@antfu/utils";
 
 export default function <T extends Element>(
-  selector: string | T | Array<T> | NodeListOf<T>,
+  input: string | Arrayable<T> | NodeListOf<T>,
   root: Element | Document = document
 ): Array<T> {
-  if (isString(selector)) {
-    return [...root.querySelectorAll<T>(selector)];
+  if (isString(input)) {
+    return [...root.querySelectorAll<T>(input)];
   }
 
-  if (selector instanceof Element) {
-    return [selector];
+  if (input instanceof NodeList) {
+    return [...input];
   }
 
-  return [...selector];
+  return toArray(input);
 }
