@@ -1,7 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Fn = (...args: any[]) => any;
-
-export default function <T extends Fn>(
+export default function <T extends (...args: any[]) => any>(
   callback: T,
   delay = 250
 ): (...args: Parameters<T>) => void {
