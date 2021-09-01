@@ -136,9 +136,11 @@ observer.triggerLoad(coolImage);
 
 ### Custom Options
 
+Pass a `onLoaded` function to either manipulate the loaded element or do anything else with it.
+
 ```js
 const onLoaded = (element) => {
-  console.log("Lazily loaded element,", element);
+  console.log("Lazily loaded element:", element);
 };
 
 const instance = new Loadeer("[data-lazyload]", {
