@@ -9,8 +9,8 @@ import { debounceFn, toElementsArray } from "./utils/index";
 
 export interface LoadeerOptions {
   root?: Element | Document;
-  rootMargin?: IntersectionObserverInit["rootMargin"];
-  threshold?: IntersectionObserverInit["threshold"];
+  rootMargin?: string;
+  threshold?: number | number[];
   onLoaded?: (element: HTMLImageElement) => void;
 }
 
@@ -28,7 +28,7 @@ export default class Loadeer<T extends HTMLImageElement> {
       | NodeListOf<T> = "[data-lazyload]",
     protected readonly options: LoadeerOptions = {}
   ) {
-    const { root, rootMargin = "0px", threshold = 0, onLoaded } = this.options;
+    const { root, rootMargin, threshold, onLoaded } = this.options;
 
     this.observer = new IntersectionObserver(onIntersection(onLoaded), {
       root,
