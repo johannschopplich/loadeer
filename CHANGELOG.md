@@ -1,3 +1,18 @@
+# [1.1.0](https://github.com/johannschopplich/loadeer/compare/v1.0.4...v1.1.0) (2021-09-02)
+
+
+### Features
+
+* apply `loading="lazy"` when supported ([acc3d7a](https://github.com/johannschopplich/loadeer/commit/acc3d7afb069a5637412fd795f353a39ff4479cb))
+* native lazy loading support ([d15a0d8](https://github.com/johannschopplich/loadeer/commit/d15a0d8683f66f9176c66f7331703fbc8b31e18f))
+
+
+### Performance Improvements
+
+* initiate observer in constructor ([b90e758](https://github.com/johannschopplich/loadeer/commit/b90e758d4b57a4101f52569afe570d10281aeb25))
+
+
+
 ## [1.0.4](https://github.com/johannschopplich/loadeer/compare/v1.0.3...v1.0.4) (2021-09-02)
 
 
