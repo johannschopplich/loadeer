@@ -20,7 +20,7 @@
     "test": "echo \"No test specified\"",
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "npm run lint -- --fix",
-    "cleanup": "prettier --write \"src/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.ts\"",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "prepare": "husky install",
     "prepublishOnly": "tsc --noEmit && npm run build"
