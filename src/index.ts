@@ -1,4 +1,5 @@
 import {
+  hasNativeLoadingSupport,
   isCrawler,
   isLoaded,
   onIntersection,
@@ -12,40 +13,45 @@ import type { LoadeerInput, LoadeerOptions } from "./types";
  * Tiny, performant, SEO-friendly lazy loading library
  */
 export default class Loadeer<T extends HTMLImageElement> {
-  public readonly observer: IntersectionObserver;
+  public observer?: IntersectionObserver;
 
   constructor(
     protected readonly selector: LoadeerInput<T> = "[data-lazyload]",
     protected readonly options: LoadeerOptions = {}
-  ) {
-    const { root, rootMargin, threshold, onLoaded } = this.options;
-
-    this.observer = new IntersectionObserver(onIntersection(onLoaded), {
-      root,
-      rootMargin,
-      threshold,
-    });
-  }
+  ) {}
 
   public observe(): void {
+    const { root, rootMargin, threshold, onLoaded } = this.options;
     const elements = toElementsArray(this.selector, this.options?.root);
+
+    if (!hasNativeLoadingSupport) {
+      this.observer = new IntersectionObserver(onIntersection(onLoaded), {
+        root,
+        rootMargin,
+        threshold,
+      });
+    }
 
     for (const element of elements) {
       if (isLoaded(element)) continue;
 
-      if (isCrawler) {
+      if (hasNativeLoadingSupport || isCrawler) {
         onLoad(element);
         this.options?.onLoaded?.(element);
         continue;
       }
 
-      this.observer.observe(element);
+      this.observer?.observe(element);
     }
 
     const debounced = debounceFn(() => onResize(elements), 100);
     window.addEventListener("resize", debounced);
   }
 
+  /**
+   * Load an element before it gets visible in the viewport
+   * (has no effect if the browser supports `loading` attribute)
+   */
   public triggerLoad(element: T): void {
     if (isLoaded(element)) return;
 
