@@ -35,7 +35,6 @@ export default class Loadeer<T extends HTMLImageElement> {
       if (hasNativeLoadingSupport || isCrawler) {
         onLoad(element);
         this.options?.onLoaded?.(element);
-        continue;
       } else {
         this.observer?.observe(element);
       }
