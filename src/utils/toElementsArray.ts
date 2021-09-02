@@ -1,11 +1,10 @@
-import { isString } from "@antfu/utils";
 import type { LoadeerInput } from "../types";
 
 export default function <T extends Element>(
   input: LoadeerInput<T>,
   root: Element | Document = document
 ): Array<T> {
-  if (isString(input)) {
+  if (typeof input === "string") {
     return [...root.querySelectorAll<T>(input)];
   }
 

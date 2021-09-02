@@ -1,4 +1,5 @@
-import type { Arrayable } from "@antfu/utils";
+export type Nullable<T> = T | null | undefined;
+export type Arrayable<T> = T | Array<T>;
 
 export type LoadeerInput<T extends Node> =
   | string
