@@ -1,19 +1,18 @@
 export default (element: HTMLImageElement): void => {
-  const newSrc = element.dataset.src;
-  if (newSrc) {
-    element.src = newSrc;
-    delete element.dataset.src;
+  const data = element.dataset;
+
+  if (data.src) {
+    element.src = data.src;
+    delete data.src;
   }
 
-  const newSrcset = element.dataset.srcset;
-  if (newSrcset) {
-    element.srcset = newSrcset;
-    delete element.dataset.srcset;
+  if (data.srcset) {
+    element.srcset = data.srcset;
+    delete data.srcset;
 
-    const newSizes = element.dataset.sizes;
-    if (newSizes) {
-      element.sizes =
-        newSizes === "auto" ? `${element.offsetWidth}px` : newSizes;
+    const sizes = data.sizes;
+    if (sizes) {
+      element.sizes = sizes === "auto" ? `${element.offsetWidth}px` : sizes;
     }
   }
 };
