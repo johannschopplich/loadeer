@@ -1,4 +1,4 @@
-import { isString, toArray } from "@antfu/utils";
+import { isString } from "@antfu/utils";
 import type { LoadeerInput } from "../types";
 
 export default function <T extends Element>(
@@ -9,9 +9,9 @@ export default function <T extends Element>(
     return [...root.querySelectorAll<T>(input)];
   }
 
-  if (input instanceof NodeList) {
-    return [...input];
+  if (input instanceof Element) {
+    return [input];
   }
 
-  return toArray(input);
+  return [...input];
 }
