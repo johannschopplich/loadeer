@@ -15,19 +15,19 @@ export default class Loadeer<T extends HTMLImageElement> {
   constructor(
     protected readonly selector: LoadeerInput<T> = "[data-lazyload]",
     protected readonly options: LoadeerOptions = {}
-  ) {}
+  ) {
+    if (hasNativeLoadingSupport) return;
+
+    const { root, rootMargin, threshold, onLoaded } = this.options;
+    this.observer = new IntersectionObserver(onIntersection(onLoaded), {
+      root,
+      rootMargin,
+      threshold,
+    });
+  }
 
   public observe(): void {
-    const { root, rootMargin, threshold, onLoaded } = this.options;
     const elements = toElementsArray(this.selector, this.options?.root);
-
-    if (!hasNativeLoadingSupport) {
-      this.observer = new IntersectionObserver(onIntersection(onLoaded), {
-        root,
-        rootMargin,
-        threshold,
-      });
-    }
 
     for (const element of elements) {
       if (isLoaded(element)) continue;
@@ -44,7 +44,7 @@ export default class Loadeer<T extends HTMLImageElement> {
 
   /**
    * Load an element before it gets visible in the viewport
-   * (has no effect if the browser supports `loading` attribute)
+   * (intended for browsers without `loading` attribute support)
    */
   public triggerLoad(element: T): void {
     if (isLoaded(element)) return;
