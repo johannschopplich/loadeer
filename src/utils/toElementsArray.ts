@@ -1,8 +1,8 @@
 import { isString, toArray } from "@antfu/utils";
-import type { Arrayable } from "@antfu/utils";
+import type { LoadeerInput } from "../types";
 
 export default function <T extends Element>(
-  input: string | Arrayable<T> | NodeListOf<T>,
+  input: LoadeerInput<T>,
   root: Element | Document = document
 ): Array<T> {
   if (isString(input)) {

@@ -1,9 +1,7 @@
 import { isLoaded, onLoad } from "./index";
-import type { LoadeerOptions } from "../index";
+import type { LoadeerOptions } from "../types";
 
-type OnLoadedCallback = LoadeerOptions["onLoaded"];
-
-export default (onLoaded?: OnLoadedCallback) =>
+export default (onLoaded?: LoadeerOptions["onLoaded"]) =>
   (
     entries: Array<IntersectionObserverEntry>,
     observer: IntersectionObserver

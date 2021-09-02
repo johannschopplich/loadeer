@@ -6,14 +6,7 @@ import {
   onResize,
 } from "./partials/index";
 import { debounceFn, toElementsArray } from "./utils/index";
-import type { Arrayable } from "@antfu/utils";
-
-export interface LoadeerOptions {
-  root?: Element | Document;
-  rootMargin?: string;
-  threshold?: number | number[];
-  onLoaded?: <T extends Element>(element: T) => void;
-}
+import type { LoadeerInput, LoadeerOptions } from "./types";
 
 /**
  * Tiny, performant, SEO-friendly lazy loading library
@@ -22,10 +15,7 @@ export default class Loadeer<T extends HTMLImageElement> {
   public readonly observer: IntersectionObserver;
 
   constructor(
-    protected readonly selector:
-      | string
-      | Arrayable<T>
-      | NodeListOf<T> = "[data-lazyload]",
+    protected readonly selector: LoadeerInput<T> = "[data-lazyload]",
     protected readonly options: LoadeerOptions = {}
   ) {
     const { root, rootMargin, threshold, onLoaded } = this.options;
