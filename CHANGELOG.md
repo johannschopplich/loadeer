@@ -1,3 +1,12 @@
+## [1.0.4](https://github.com/johannschopplich/loadeer/compare/v1.0.3...v1.0.4) (2021-09-02)
+
+
+### Bug Fixes
+
+* always clone input array ([7fb8adf](https://github.com/johannschopplich/loadeer/commit/7fb8adf3617889a5b84b3a79a70e91a3460dd125))
+
+
+
 ## [1.0.3](https://github.com/johannschopplich/loadeer/compare/v1.0.2...v1.0.3) (2021-09-01)
 
 
