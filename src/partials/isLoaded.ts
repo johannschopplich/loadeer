@@ -1,2 +1,2 @@
 export default (element: HTMLElement): boolean =>
-  element.dataset.loaded === "true";
+  "src" in element.dataset || "srcset" in element.dataset;
