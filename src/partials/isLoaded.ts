@@ -1,2 +1,2 @@
-export default (element: HTMLElement): boolean =>
-  "src" in element.dataset || "srcset" in element.dataset;
+export default ({ dataset }: { dataset: DOMStringMap }): boolean =>
+  !["src", "srcset"].some((i) => i in dataset);
