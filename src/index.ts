@@ -1,12 +1,9 @@
+import { isLoaded, onIntersection, onLoad } from "./partials/index";
 import {
   hasNativeLoadingSupport,
   isCrawler,
-  isLoaded,
-  onIntersection,
-  onLoad,
-  onResize,
-} from "./partials/index";
-import { debounceFn, toElementsArray } from "./utils/index";
+  toElementsArray,
+} from "./utils/index";
 import type { LoadeerInput, LoadeerOptions } from "./types";
 
 /**
@@ -43,9 +40,6 @@ export default class Loadeer<T extends HTMLImageElement> {
 
       this.observer?.observe(element);
     }
-
-    const debounced = debounceFn(() => onResize(elements), 100);
-    window.addEventListener("resize", debounced);
   }
 
   /**
