@@ -1,5 +1,11 @@
+import { hasNativeLoadingSupport } from "../utils";
+
 export default (element: HTMLImageElement): void => {
   const data = element.dataset;
+
+  if (hasNativeLoadingSupport && element.loading !== "lazy") {
+    element.loading = "lazy";
+  }
 
   if (data.src) {
     element.src = data.src;

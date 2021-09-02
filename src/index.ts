@@ -36,9 +36,9 @@ export default class Loadeer<T extends HTMLImageElement> {
         onLoad(element);
         this.options?.onLoaded?.(element);
         continue;
+      } else {
+        this.observer?.observe(element);
       }
-
-      this.observer?.observe(element);
     }
   }
 

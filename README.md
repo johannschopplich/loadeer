@@ -21,11 +21,11 @@ Loadeer.js is intended to be used with images.
 ### Key Features
 
 - 🍃 **Zero dependencies**: 0.7kb minified & brotli
+- 🎀 **Native**: Uses [native `loading="lazy"`](#native-lazy-loading) if supported
 - 🏎 **Auto initialize**: with the `init` script attribute
 - 🪄 **Sizing**: Automatically calculates the `sizes` attribute
 - 🔧 **Customizable**: Use `data` attributes for image sources
 - 🔍 **SEO-friendly**: Detects e.g. Google Bot and preloads all images
-- 👀 **Observant**: Watches for DOM changes
 
 ## Installation
 
@@ -92,6 +92,29 @@ Finally, instantiate Loadeer.js as follows:
 ```js
 const instance = new Loadeer();
 // Lazily loads all `data-lazyload` images
+instance.observe();
+```
+
+### Native Lazy Loading
+
+Browser support for `loading="lazy"` is decent. A the time writing, only Safari lacks support. Loadeer.js checks if the browser supports lazy loading and if so, will change the `loading` attribute to `lazy`.
+
+Use the default selector:
+
+```html
+<img data-lazyload data-src="image.png" />
+```
+
+Or use the future-proof `loading` attribute as selector:
+
+```html
+<img loading="lazy" data-src="image.png" />
+```
+
+Finally, change the default selector parameter for the latter case:
+
+```js
+const instance = new Loadeer(`img[loading="lazy"`);
 instance.observe();
 ```
 
