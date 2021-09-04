@@ -1,11 +1,10 @@
 import { isLoaded, onLoad } from "./index";
 import type { LoadeerOptions } from "../types";
 
-export default (onLoaded?: LoadeerOptions["onLoaded"]) =>
-  (
-    entries: Array<IntersectionObserverEntry>,
-    observer: IntersectionObserver
-  ): void => {
+export default (
+    onLoaded?: LoadeerOptions["onLoaded"]
+  ): IntersectionObserverCallback =>
+  (entries, observer) => {
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
 
