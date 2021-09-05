@@ -1,3 +1,12 @@
+## [1.1.1](https://github.com/johannschopplich/loadeer/compare/v1.1.0...v1.1.1) (2021-09-05)
+
+
+### Performance Improvements
+
+* bundle size optimization ([adbee4d](https://github.com/johannschopplich/loadeer/commit/adbee4dda5ecf5bfbfef1e72548a1d4b58718404))
+
+
+
 # [1.1.0](https://github.com/johannschopplich/loadeer/compare/v1.0.4...v1.1.0) (2021-09-02)
 
 
