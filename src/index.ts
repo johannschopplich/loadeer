@@ -16,14 +16,15 @@ export default class Loadeer<T extends HTMLImageElement> {
     protected readonly selector: LoadeerInput<T> = "[data-lazyload]",
     protected readonly options: LoadeerOptions = {}
   ) {
-    if (hasNativeLoadingSupport) return;
-
     const { root, rootMargin, threshold, onLoaded } = this.options;
-    this.observer = new IntersectionObserver(onIntersection(onLoaded), {
-      root,
-      rootMargin,
-      threshold,
-    });
+
+    if (!hasNativeLoadingSupport) {
+      this.observer = new IntersectionObserver(onIntersection(onLoaded), {
+        root,
+        rootMargin,
+        threshold,
+      });
+    }
   }
 
   public observe(): void {
