@@ -56,15 +56,15 @@
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
-    "@typescript-eslint/eslint-plugin": "^4.30.0",
-    "@typescript-eslint/parser": "^4.30.0",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
     "conventional-changelog-cli": "^2.1.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
-    "prettier": "2.3.2",
+    "prettier": "2.4.0",
     "typescript": "^4.4.2",
-    "vite": "^2.5.3"
+    "vite": "^2.5.6"
   }
 }
