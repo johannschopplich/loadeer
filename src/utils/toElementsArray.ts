@@ -1,6 +1,6 @@
 import type { LoadeerInput } from "../types";
 
-export default function <T extends Element>(
+export default function <T extends HTMLElement>(
   input: LoadeerInput<T>,
   root: Element | Document = document
 ): Array<T> {
