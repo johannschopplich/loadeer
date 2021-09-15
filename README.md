@@ -114,7 +114,7 @@ Or use the future-proof `loading` attribute as selector:
 Finally, change the default selector parameter for the latter case:
 
 ```js
-const instance = new Loadeer(`img[loading="lazy"`);
+const instance = new Loadeer(`img[loading="lazy"]`);
 instance.observe();
 ```
 
