@@ -7,9 +7,8 @@ export default (onLoaded?: LoadeerOptions["onLoaded"]): IntersectionObserverCall
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
 
-      const { target } = <
-        IntersectionObserverEntry & { target: HTMLImageElement }
-      >entry;
+      // prettier-ignore
+      const { target } = <IntersectionObserverEntry & { target: HTMLImageElement }>entry;
 
       observer.unobserve(target);
 
