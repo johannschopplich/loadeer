@@ -54,7 +54,7 @@
   },
   "homepage": "https://github.com/johannschopplich/loadeer#readme",
   "devDependencies": {
-    "@types/node": "^16.9.6",
+    "@types/node": "^16.10.1",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
     "conventional-changelog-cli": "^2.1.1",
