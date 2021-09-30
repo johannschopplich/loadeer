@@ -1,3 +1,13 @@
+## [1.1.2](https://github.com/johannschopplich/loadeer/compare/v1.1.1...v1.1.2) (2021-09-30)
+
+### Bug Fixes
+
+- don't minify es build ([94476a4](https://github.com/johannschopplich/loadeer/commit/94476a41d1dafb1fff3840e66a06da2fb875c409))
+
+### Performance Improvements
+
+- kick off some bytes ([13702dd](https://github.com/johannschopplich/loadeer/commit/13702ddad5ad4011bf2722214da064d8fed75d1e))
+
 ## [1.1.1](https://github.com/johannschopplich/loadeer/compare/v1.1.0...v1.1.1) (2021-09-05)
 
 ### Performance Improvements
