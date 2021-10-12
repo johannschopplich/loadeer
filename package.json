@@ -54,16 +54,16 @@
   },
   "homepage": "https://github.com/johannschopplich/loadeer#readme",
   "devDependencies": {
-    "@types/node": "^16.10.2",
-    "@typescript-eslint/eslint-plugin": "^4.32.0",
-    "@typescript-eslint/parser": "^4.32.0",
+    "@types/node": "^16.10.3",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
     "conventional-changelog-cli": "^2.1.1",
-    "eslint": "^7.32.0",
+    "eslint": "^8.0.0",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^7.0.2",
-    "lint-staged": "^11.1.2",
+    "lint-staged": "^11.2.3",
     "prettier": "2.4.1",
     "typescript": "^4.4.3",
-    "vite": "^2.6.1"
+    "vite": "^2.6.7"
   }
 }
