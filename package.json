@@ -17,11 +17,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && tsc --emitDeclarationOnly",
-    "test": "echo \"No test specified\"",
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier --write \"src/**/*.ts\"",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "release": "node scripts/release.js",
     "prepare": "husky install",
     "prepublishOnly": "tsc --noEmit && npm run build"
   },
@@ -54,16 +54,20 @@
   },
   "homepage": "https://github.com/johannschopplich/loadeer#readme",
   "devDependencies": {
-    "@types/node": "^16.10.3",
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@typescript-eslint/parser": "^5.0.0",
+    "@types/node": "^16.11.7",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "colorette": "^2.0.16",
     "conventional-changelog-cli": "^2.1.1",
-    "eslint": "^8.0.0",
+    "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
-    "husky": "^7.0.2",
-    "lint-staged": "^11.2.3",
+    "execa": "^5.1.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.0.2",
     "prettier": "2.4.1",
-    "typescript": "^4.4.3",
-    "vite": "^2.6.7"
+    "prompts": "^2.4.2",
+    "semver": "^7.3.5",
+    "typescript": "^4.4.4",
+    "vite": "^2.6.14"
   }
 }
