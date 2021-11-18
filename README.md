@@ -212,4 +212,4 @@ Loadeer.js does not hide elements from Google. The library detects whether the u
 
 ## License
 
-MIT
+[MIT](./LICENSE) License © 2021 [Johann Schopplich](https://github.com/johannschopplich)
