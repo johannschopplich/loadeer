@@ -54,13 +54,13 @@ async function main() {
     /**
      * @type {{ version: string }}
      */
-    const res = await prompts({
+    const { version } = await prompts({
       type: "text",
       name: "version",
       message: "Input custom version",
       initial: currentVersion,
     });
-    targetVersion = res.version;
+    targetVersion = version;
   } else {
     targetVersion = release.match(/\((.*)\)/)[1];
   }
