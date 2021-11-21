@@ -5,8 +5,7 @@ type Entry = IntersectionObserverEntry & {
   readonly target: HTMLImageElement;
 };
 
-// prettier-ignore
-export default (onLoaded?: LoadeerOptions["onLoaded"]): IntersectionObserverCallback =>
+export default (options: LoadeerOptions): IntersectionObserverCallback =>
   (entries, observer) => {
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
@@ -17,7 +16,7 @@ export default (onLoaded?: LoadeerOptions["onLoaded"]): IntersectionObserverCall
 
       if (isLoaded(target)) continue;
 
-      onLoad(target);
-      onLoaded?.(target);
+      onLoad(target, options);
+      options?.onLoaded?.(target);
     }
   };

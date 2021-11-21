@@ -16,10 +16,15 @@ export default class Loadeer<T extends HTMLImageElement> {
     protected readonly selector: LoadeerInput<T> = "[data-lazyload]",
     protected readonly options: LoadeerOptions = {}
   ) {
-    const { root, rootMargin, threshold, onLoaded } = this.options;
+    const {
+      root,
+      rootMargin,
+      threshold,
+      useNativeLoading = false,
+    } = this.options;
 
-    if (!hasNativeLoadingSupport) {
-      this.observer = new IntersectionObserver(onIntersection(onLoaded), {
+    if (!useNativeLoading || !hasNativeLoadingSupport) {
+      this.observer = new IntersectionObserver(onIntersection(this.options), {
         root,
         rootMargin,
         threshold,
@@ -28,14 +33,15 @@ export default class Loadeer<T extends HTMLImageElement> {
   }
 
   public observe(): void {
-    const elements = toElementsArray(this.selector, this.options?.root);
+    const { root, onLoaded, useNativeLoading } = this.options;
+    const elements = toElementsArray(this.selector, root);
 
     for (const element of elements) {
       if (isLoaded(element)) continue;
 
-      if (hasNativeLoadingSupport || isCrawler) {
-        onLoad(element);
-        this.options?.onLoaded?.(element);
+      if ((useNativeLoading && hasNativeLoadingSupport) || isCrawler) {
+        onLoad(element, this.options);
+        onLoaded?.(element);
       } else {
         this.observer?.observe(element);
       }
@@ -49,7 +55,7 @@ export default class Loadeer<T extends HTMLImageElement> {
   public triggerLoad(element: T): void {
     if (isLoaded(element)) return;
 
-    onLoad(element);
+    onLoad(element, this.options);
     this.options?.onLoaded?.(element);
   }
 }

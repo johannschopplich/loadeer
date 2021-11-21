@@ -1,9 +1,8 @@
-export type Nullable<T> = T | null | undefined;
-export type Arrayable<T> = T | Array<T>;
+export type MaybeArray<T> = T | Array<T>;
 
 export type LoadeerInput<T extends HTMLElement> =
   | string
-  | Arrayable<T>
+  | MaybeArray<T>
   | NodeListOf<T>;
 
 export interface LoadeerOptions {
@@ -11,4 +10,5 @@ export interface LoadeerOptions {
   rootMargin?: string;
   threshold?: number | number[];
   onLoaded?: <T extends HTMLElement>(element: T) => void;
+  useNativeLoading?: boolean;
 }

@@ -1,10 +1,16 @@
 import { hasNativeLoadingSupport } from "../utils";
+import type { LoadeerOptions } from "../types";
 
-export default (element: HTMLImageElement): void => {
+export default (element: HTMLImageElement, options: LoadeerOptions): void => {
+  const { useNativeLoading = false } = options;
   const { dataset } = element;
   const { src, srcset, sizes } = dataset;
 
-  if (hasNativeLoadingSupport && element.loading !== "lazy") {
+  if (
+    useNativeLoading &&
+    hasNativeLoadingSupport &&
+    element.loading !== "lazy"
+  ) {
     element.loading = "lazy";
   }
 

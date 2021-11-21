@@ -85,7 +85,7 @@ Add the `data-lazyload` attribute to an element of your choice which you seek to
 <img data-lazyload data-src="image.png" />
 ```
 
-Although the Loadeer's default selector is `data-lazyload`, you may configure it to a selector of your choice. See the libraries options for more information.
+Although Loadeer.js' default selector is `data-lazyload`, you may configure it to a selector of your choice. See the libraries options for more information.
 
 Finally, instantiate Loadeer.js as follows:
 
@@ -97,7 +97,9 @@ instance.observe();
 
 ### Native Lazy Loading
 
-Browser support for `loading="lazy"` is decent. A the time writing, only Safari lacks support. Loadeer.js checks if the browser supports lazy loading and if so, will change the `loading` attribute to `lazy`.
+> ℹ️ Use with caution. Especially if placeholder images are used, the native lazy loading attribute interferes, since all `data-src` attributes will be converted to `src` once Loadeer.js runs. All placeholder images will be overwritten and if the images are loaded sower then the user scrolls, blank spaces will occur. Thus, Loadeer.js doesn't enable native lazy loading by default.
+
+Browser support for `loading="lazy"` is decent. At the time writing, only Safari lacks support. If the option `useNativeLoading` is set to `true` and Loadeer.js detects the browser supports lazy loading, the `loading` attribute will be set to `lazy` and all `data-src` attributes changed to `src`. No intersection observer will be initialized.
 
 Use the default selector:
 
@@ -195,12 +197,13 @@ Defaults to `[data-lazyload]`. Allowed types are:
 
 > Note: Every property is optional to pass to the Loadeer.js constructor.
 
-| Option       | Default     | Type                                          | Description                                                                                                                                      |
-| ------------ | ----------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `root`       | `document`  | `Element`, `Document`, `null`, `undefined`    | The container within elements will be lazily loaded.                                                                                             |
-| `rootMargin` | `0px`       | `string`, `undefined`                         | See `IntersectionObserver` [`rootMargin` parameter](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver). |
-| `threshold`  | `0`         | `number`, `number[]`, `undefined`             | See `IntersectionObserver` [`threshold` parameter](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver).  |
-| `onLoaded`   | `undefined` | `(element: HTMLElement) => void`, `undefined` | Custom function to run after each image is loaded.                                                                                               |
+| Option             | Default     | Type                                          | Description                                                                                                                                      |
+| ------------------ | ----------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `root`             | `document`  | `Element`, `Document`, `null`, `undefined`    | The container within elements will be lazily loaded.                                                                                             |
+| `rootMargin`       | `0px`       | `string`, `undefined`                         | See `IntersectionObserver` [`rootMargin` parameter](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver). |
+| `threshold`        | `0`         | `number`, `number[]`, `undefined`             | See `IntersectionObserver` [`threshold` parameter](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver).  |
+| `onLoaded`         | `undefined` | `(element: HTMLElement) => void`, `undefined` | Custom function to run after each image is loaded.                                                                                               |
+| `useNativeLoading` | `false`     | `boolean`, `undefined`                        | Indicates if the native `loading="lazy"` attribute should be used (if supported by the browser).                                                 |
 
 ## SEO
 
