@@ -1,3 +1,9 @@
+# [1.2.0](https://github.com/johannschopplich/loadeer/compare/v1.1.3...v1.2.0) (2021-11-21)
+
+### Bug Fixes
+
+- native loading and placeholders ([e69180b](https://github.com/johannschopplich/loadeer/commit/e69180b2728c15c8cf18722c197b35b2aac2f7fc))
+
 ## [1.1.3](https://github.com/johannschopplich/loadeer/compare/v1.1.2...v1.1.3) (2021-11-18)
 
 ## [1.1.2](https://github.com/johannschopplich/loadeer/compare/v1.1.1...v1.1.2) (2021-09-30)
