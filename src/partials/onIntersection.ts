@@ -2,7 +2,7 @@ import { isLoaded, onLoad } from "./index";
 import type { LoadeerOptions } from "../types";
 
 type Entry = IntersectionObserverEntry & {
-  readonly target: HTMLImageElement;
+  readonly target: HTMLImageElement & HTMLVideoElement;
 };
 
 export default (options: LoadeerOptions): IntersectionObserverCallback =>

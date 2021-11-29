@@ -1,10 +1,13 @@
 import { hasNativeLoadingSupport } from "../utils";
 import type { LoadeerOptions } from "../types";
 
-export default (element: HTMLImageElement, options: LoadeerOptions): void => {
+export default (
+  element: HTMLImageElement & HTMLVideoElement,
+  options: LoadeerOptions
+): void => {
   const { useNativeLoading = false } = options;
   const { dataset } = element;
-  const { src, srcset, sizes } = dataset;
+  const { src, srcset, sizes, poster } = dataset;
 
   if (
     useNativeLoading &&
@@ -12,6 +15,11 @@ export default (element: HTMLImageElement, options: LoadeerOptions): void => {
     element.loading !== "lazy"
   ) {
     element.loading = "lazy";
+  }
+
+  if (poster) {
+    element.poster = poster;
+    delete dataset.poster;
   }
 
   if (src) {

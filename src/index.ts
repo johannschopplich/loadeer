@@ -9,7 +9,7 @@ import type { LoadeerInput, LoadeerOptions } from "./types";
 /**
  * Tiny, performant, SEO-friendly lazy loading library
  */
-export default class Loadeer<T extends HTMLImageElement> {
+export default class Loadeer<T extends HTMLImageElement & HTMLVideoElement> {
   public observer?: IntersectionObserver;
 
   constructor(
