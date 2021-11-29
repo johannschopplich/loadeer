@@ -1,3 +1,9 @@
+# [1.3.0](https://github.com/johannschopplich/loadeer/compare/v1.2.0...v1.3.0) (2021-11-29)
+
+### Features
+
+- support `data-poster` on video tags ([69d1cda](https://github.com/johannschopplich/loadeer/commit/69d1cdae21529d2d75171648fc6c60e8cdd0992a))
+
 # [1.2.0](https://github.com/johannschopplich/loadeer/compare/v1.1.3...v1.2.0) (2021-11-21)
 
 ### Bug Fixes
