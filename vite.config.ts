@@ -8,7 +8,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "Loadeer",
-      formats: ["es", "umd", "iife"],
+      formats: ["es", "iife"],
     },
   },
 });
