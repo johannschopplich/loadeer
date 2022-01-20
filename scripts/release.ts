@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 /**
- * modified from https://github.com/vitejs/vite/blob/main/scripts/release.ts
+ * Modified from https://github.com/vitejs/vite/blob/main/scripts/release.ts
  */
 import { readFileSync, writeFileSync } from "fs";
 import path from "path";
