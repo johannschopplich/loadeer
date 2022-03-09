@@ -154,7 +154,7 @@ If you want to load the images before they appear, use the `triggerLoad` method.
 const instance = new Loadeer();
 instance.observe();
 
-const genericImage = document.querySelector(".image-to-load-first");
+const coolImage = document.querySelector(".image-to-load-first");
 // Trigger the load before the image appears in the viewport
 observer.triggerLoad(coolImage);
 ```
