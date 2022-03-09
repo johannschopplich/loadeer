@@ -4,12 +4,12 @@ import {
   isCrawler,
   toElementsArray,
 } from "./utils/index";
-import type { LoadeerInput, LoadeerOptions } from "./types";
+import type { LoadeerElement, LoadeerInput, LoadeerOptions } from "./types";
 
 /**
  * Tiny, performant, SEO-friendly lazy loading library
  */
-export default class Loadeer<T extends HTMLImageElement & HTMLVideoElement> {
+export default class Loadeer<T extends LoadeerElement> {
   public observer?: IntersectionObserver;
 
   constructor(

@@ -1,16 +1,14 @@
 import { isLoaded, onLoad } from "./index";
-import type { LoadeerOptions } from "../types";
+import type { LoadeerElement, LoadeerOptions } from "../types";
 
-type Entry = IntersectionObserverEntry & {
-  readonly target: HTMLImageElement & HTMLVideoElement;
-};
-
-export default (options: LoadeerOptions): IntersectionObserverCallback =>
-  (entries, observer) => {
+export default function (
+  options: LoadeerOptions
+): IntersectionObserverCallback {
+  return (entries, observer) => {
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
 
-      const { target } = <Entry>entry;
+      const target = entry.target as LoadeerElement;
 
       observer.unobserve(target);
 
@@ -20,3 +18,4 @@ export default (options: LoadeerOptions): IntersectionObserverCallback =>
       options?.onLoaded?.(target);
     }
   };
+}

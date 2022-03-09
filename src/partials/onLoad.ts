@@ -1,38 +1,40 @@
 import { hasNativeLoadingSupport } from "../utils";
-import type { LoadeerOptions } from "../types";
+import type { LoadeerElement, LoadeerOptions } from "../types";
 
-export default (
-  element: HTMLImageElement & HTMLVideoElement,
+export default function (
+  element: LoadeerElement,
   options: LoadeerOptions
-): void => {
+): void {
   const { useNativeLoading = false } = options;
   const { dataset } = element;
   const { src, srcset, sizes, poster } = dataset;
-
-  if (
-    useNativeLoading &&
-    hasNativeLoadingSupport &&
-    element.loading !== "lazy"
-  ) {
-    element.loading = "lazy";
-  }
-
-  if (poster) {
-    element.poster = poster;
-    delete dataset.poster;
-  }
 
   if (src) {
     element.src = src;
     delete dataset.src;
   }
 
-  if (srcset) {
-    element.srcset = srcset;
-    delete dataset.srcset;
+  if (element instanceof HTMLImageElement) {
+    if (
+      useNativeLoading &&
+      hasNativeLoadingSupport &&
+      element.loading !== "lazy"
+    ) {
+      element.loading = "lazy";
+    }
 
-    if (sizes) {
-      element.sizes = sizes === "auto" ? `${element.offsetWidth}px` : sizes;
+    if (srcset) {
+      element.srcset = srcset;
+      delete dataset.srcset;
+
+      if (sizes) {
+        element.sizes = sizes === "auto" ? `${element.offsetWidth}px` : sizes;
+      }
     }
   }
-};
+
+  if (element instanceof HTMLVideoElement && poster) {
+    element.poster = poster;
+    delete dataset.poster;
+  }
+}
