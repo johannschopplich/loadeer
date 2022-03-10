@@ -24,7 +24,13 @@
     "email": "pkg@johannschopplich.com",
     "url": "https://johannschopplich.com"
   },
-  "exports": "./dist/loadeer.es.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/loadeer.es.js",
+      "require": "./dist/loadeer.umd.js"
+    }
+  },
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
