@@ -31,6 +31,8 @@
       "require": "./dist/loadeer.umd.js"
     }
   },
+  "main": "./dist/loadeer.umd.js",
+  "module": "./dist/loadeer.es.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
