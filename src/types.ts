@@ -1,11 +1,10 @@
-export type MaybeArray<T> = T | Array<T>;
-
 export type LoadeerElement = HTMLImageElement | HTMLVideoElement;
 
 export type LoadeerInput<T extends HTMLElement> =
-  | string
-  | MaybeArray<T>
-  | NodeListOf<T>;
+  | T
+  | T[]
+  | NodeListOf<T>
+  | string;
 
 export interface LoadeerOptions {
   root?: Element | Document;
