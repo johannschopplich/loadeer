@@ -1,7 +1,22 @@
 {
   "name": "loadeer",
   "version": "1.3.3",
+  "packageManager": "pnpm@7.3.0",
   "description": "Tiny, performant, SEO-friendly lazy loading library",
+  "author": {
+    "name": "Johann Schopplich",
+    "email": "pkg@johannschopplich.com",
+    "url": "https://johannschopplich.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/johannschopplich/loadeer#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johannschopplich/loadeer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/johannschopplich/loadeer/issues"
+  },
   "keywords": [
     "lazy-loading",
     "lazyloading",
@@ -10,25 +25,11 @@
     "lozad.js",
     "lozad"
   ],
-  "homepage": "https://github.com/johannschopplich/loadeer#readme",
-  "bugs": {
-    "url": "https://github.com/johannschopplich/loadeer/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/johannschopplich/loadeer.git"
-  },
-  "license": "MIT",
-  "author": {
-    "name": "Johann Schopplich",
-    "email": "pkg@johannschopplich.com",
-    "url": "https://johannschopplich.com"
-  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/loadeer.es.js",
-      "require": "./dist/loadeer.umd.js"
+      "require": "./dist/loadeer.umd.js",
+      "import": "./dist/loadeer.es.js"
     }
   },
   "main": "./dist/loadeer.umd.js",
@@ -40,42 +41,28 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && tsc --emitDeclarationOnly",
-    "lint": "eslint \"src/**/*.ts\"",
-    "lint:fix": "npm run lint -- --fix",
-    "format": "prettier --write \"src/**/*.ts\"",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "release": "esno scripts/release.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "release": "bumpp --commit --push --tag",
     "prepublishOnly": "tsc --noEmit && npm run build"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.25.1",
+    "@types/node": "^18.0.0",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.18.0",
+    "lint-staged": "^13.0.2",
+    "simple-git-hooks": "^2.8.0",
+    "typescript": "^4.7.4",
+    "vite": "^2.9.12"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
     "src/**/*.ts": [
       "eslint",
       "prettier --write"
     ]
-  },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
-  },
-  "devDependencies": {
-    "@types/node": "^17.0.21",
-    "@types/prompts": "^2.4.0",
-    "@types/semver": "^7.3.9",
-    "@typescript-eslint/eslint-plugin": "^5.14.0",
-    "@typescript-eslint/parser": "^5.14.0",
-    "conventional-changelog-cli": "^2.2.2",
-    "eslint": "^8.10.0",
-    "eslint-config-prettier": "^8.5.0",
-    "esno": "^0.14.1",
-    "execa": "^6.1.0",
-    "lint-staged": "^12.3.5",
-    "minimist": "^1.2.5",
-    "picocolors": "^1.0.0",
-    "prettier": "2.5.1",
-    "prompts": "^2.4.2",
-    "semver": "^7.3.5",
-    "simple-git-hooks": "^2.7.0",
-    "ts-node": "^10.7.0",
-    "typescript": "^4.6.2",
-    "vite": "^2.8.6"
   }
 }

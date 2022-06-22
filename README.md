@@ -60,10 +60,10 @@ If you don't want the auto initialize, remove the `init` attribute and move the 
 Or, use the ES module build by installing the `loadeer` npm package:
 
 ```js
-import Loadeer from "loadeer";
+import Loadeer from 'loadeer'
 
-const loadeer = new Loadeer();
-loadeer.observe();
+const loadeer = new Loadeer()
+loadeer.observe()
 ```
 
 ### Production CDN URLs
@@ -90,9 +90,9 @@ Although Loadeer.js' default selector is `data-lazyload`, you may configure it t
 Finally, instantiate Loadeer.js as follows:
 
 ```js
-const instance = new Loadeer();
+const instance = new Loadeer()
 // Lazily loads all `data-lazyload` images
-instance.observe();
+instance.observe()
 ```
 
 ### Native Lazy Loading
@@ -116,8 +116,8 @@ Or use the future-proof `loading` attribute as selector:
 Finally, change the default selector parameter for the latter case:
 
 ```js
-const instance = new Loadeer(`img[loading="lazy"]`);
-instance.observe();
+const instance = new Loadeer('img[loading="lazy"]')
+instance.observe()
 ```
 
 ### Auto Calculation of the `sizes` Attribute
@@ -139,9 +139,9 @@ The automatic sizes calculation uses the display width of the image.
 You may pass an element or array of elements to the constructor as well:
 
 ```js
-const root = document.querySelector("#app");
-const instance = new Loadeer(root);
-instance.observe();
+const root = document.querySelector('#app')
+const instance = new Loadeer(root)
+instance.observe()
 ```
 
 See the [API](#api) for all available options.
@@ -151,12 +151,12 @@ See the [API](#api) for all available options.
 If you want to load the images before they appear, use the `triggerLoad` method.
 
 ```js
-const instance = new Loadeer();
-instance.observe();
+const instance = new Loadeer()
+instance.observe()
 
-const coolImage = document.querySelector(".image-to-load-first");
+const coolImage = document.querySelector('.image-to-load-first')
 // Trigger the load before the image appears in the viewport
-observer.triggerLoad(coolImage);
+observer.triggerLoad(coolImage)
 ```
 
 ### Custom Options
@@ -165,17 +165,17 @@ Pass a `onLoaded` function to either manipulate the loaded element or do anythin
 
 ```js
 const onLoaded = (element) => {
-  console.log("Lazily loaded element:", element);
-};
+  console.log('Lazily loaded element:', element)
+}
 
-const instance = new Loadeer("[data-lazyload]", {
-  root: document.querySelector("#app"),
-  rootMargin: "10px 0px",
+const instance = new Loadeer('[data-lazyload]', {
+  root: document.querySelector('#app'),
+  rootMargin: '10px 0px',
   threshold: 0.1,
   onLoaded,
-});
+})
 
-instance.observe();
+instance.observe()
 ```
 
 Both the [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) and [`thresholds`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/thresholds) options are passed to directly to the `IntersectionObserver` and thus infer their respective types.
@@ -215,4 +215,4 @@ Loadeer.js does not hide elements from Google. The library detects whether the u
 
 ## License
 
-[MIT](./LICENSE) License © 2021 [Johann Schopplich](https://github.com/johannschopplich)
+[MIT](./LICENSE) License © 2021-2022 [Johann Schopplich](https://github.com/johannschopplich)

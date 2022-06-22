@@ -1,17 +1,17 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "jsx": "preserve",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "types": ["vite/client"],
     "resolveJsonModule": true,
     "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "noUnusedLocals": true,
-    "noImplicitReturns": true,
     "skipLibCheck": true
   },
   "include": ["src"]
