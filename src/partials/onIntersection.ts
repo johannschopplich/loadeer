@@ -1,21 +1,21 @@
-import { isLoaded, onLoad } from "./index";
-import type { LoadeerElement, LoadeerOptions } from "../types";
+import type { LoadeerElement, LoadeerOptions } from '../types'
+import { isLoaded, onLoad } from './index'
 
-export default function (
-  options: LoadeerOptions
-): IntersectionObserverCallback {
+export default function (options: LoadeerOptions): IntersectionObserverCallback {
   return (entries, observer) => {
     for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
+      if (!entry.isIntersecting)
+        continue
 
-      const target = entry.target as LoadeerElement;
+      const target = entry.target as LoadeerElement
 
-      observer.unobserve(target);
+      observer.unobserve(target)
 
-      if (isLoaded(target)) continue;
+      if (isLoaded(target))
+        continue
 
-      onLoad(target, options);
-      options?.onLoaded?.(target);
+      onLoad(target, options)
+      options?.onLoaded?.(target)
     }
-  };
+  }
 }
