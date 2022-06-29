@@ -20,7 +20,7 @@ Loadeer.js is intended to be used with images.
 
 ### Key Features
 
-- 🍃 **Zero dependencies**: 0.7kb minified & brotli
+- 🍃 **Zero dependencies**: 0.8kb minified & brotli
 - 🎀 **Native**: Uses [native `loading="lazy"`](#native-lazy-loading) if supported
 - 🏎 **Auto initialize**: with the `init` script attribute
 - 🪄 **Sizing**: Automatically calculates the `sizes` attribute
@@ -52,8 +52,8 @@ If you don't want the auto initialize, remove the `init` attribute and move the 
 ```html
 <script src="https://unpkg.com/loadeer"></script>
 <script>
-  const loadeer = new Loadeer();
-  loadeer.observe();
+  const loadeer = new Loadeer()
+  loadeer.observe()
 </script>
 ```
 
@@ -82,7 +82,13 @@ The short CDN URLs are meant for prototyping. For production usage, use a fully 
 Add the `data-lazyload` attribute to an element of your choice which you seek to lazily load. Set an `data-src` or `data-srcset` attribute as well.
 
 ```html
+<!-- You can use the img tag -->
 <img data-lazyload data-src="image.png" />
+
+<!-- … or the picture element -->
+<picture>
+   <source data-lazyload data-srcset="/foo.jpg" media="(min-width: 800px)">
+</picture>
 ```
 
 Although Loadeer.js' default selector is `data-lazyload`, you may configure it to a selector of your choice. See the libraries options for more information.
