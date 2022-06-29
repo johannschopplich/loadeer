@@ -1,9 +1,9 @@
-import { isLoaded, onIntersection, onLoad } from './partials/index'
+import { isLoaded, onIntersection, onLoad } from './callbacks'
 import {
   hasNativeLoadingSupport,
   isCrawler,
   toElementsArray,
-} from './utils/index'
+} from './utils'
 import type { LoadeerElement, LoadeerInput, LoadeerOptions } from './types'
 
 export type { LoadeerElement, LoadeerInput, LoadeerOptions }

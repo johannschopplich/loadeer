@@ -1,7 +1,7 @@
 import { hasNativeLoadingSupport } from '../utils'
 import type { LoadeerElement, LoadeerOptions } from '../types'
 
-export default function (element: LoadeerElement, options: LoadeerOptions): void {
+export function onLoad(element: LoadeerElement, options: LoadeerOptions) {
   const { useNativeLoading = false } = options
   const { dataset } = element
   const { src, srcset, sizes, poster } = dataset

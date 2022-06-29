@@ -1,7 +1,7 @@
 import type { LoadeerElement, LoadeerOptions } from '../types'
 import { isLoaded, onLoad } from './index'
 
-export default function (options: LoadeerOptions): IntersectionObserverCallback {
+export function onIntersection(options: LoadeerOptions): IntersectionObserverCallback {
   return (entries, observer) => {
     for (const entry of entries) {
       if (!entry.isIntersecting)
