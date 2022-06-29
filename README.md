@@ -21,10 +21,11 @@ Loadeer.js is intended to be used with images.
 ### Key Features
 
 - 🍃 **Zero dependencies**: 0.8kb minified & brotli
-- 🎀 **Native**: Uses [native `loading="lazy"`](#native-lazy-loading) if supported
+- 🎀 **Native**: Uses [native `loading="lazy"`](#native-lazy-loading) if supported and enabled
 - 🏎 **Auto initialize**: with the `init` script attribute
 - 🪄 **Sizing**: Automatically calculates the `sizes` attribute
 - 🔧 **Customizable**: Use `data` attributes for image sources
+- 🎟 **`<picture>`**: Supports multiple image formats
 - 🔍 **SEO-friendly**: Detects e.g. Google Bot and preloads all images
 
 ## Installation
@@ -37,9 +38,14 @@ Loadeer.js can be used without a build step. Simply load it from a CDN:
 <!-- Anywhere on the page -->
 <img
   data-lazyload
-  data-src="image.png"
-  data-srcset="image.png 1024w, image-2x.png 2048w"
+  data-src="/foo.png"
+  data-srcset="/foo.png 1024w, /foo-2x.png 2048w"
 />
+
+<!-- Or use the picture tag instead -->
+<picture>
+  <source data-lazyload data-srcset="/bar.jpg" media="(min-width: 800px)">
+</picture>
 ```
 
 - The `defer` attribute makes the script execute after HTML content is parsed.
@@ -87,7 +93,7 @@ Add the `data-lazyload` attribute to an element of your choice which you seek to
 
 <!-- … or the picture element -->
 <picture>
-   <source data-lazyload data-srcset="/foo.jpg" media="(min-width: 800px)">
+  <source data-lazyload data-srcset="/foo.jpg" media="(min-width: 800px)">
 </picture>
 ```
 
