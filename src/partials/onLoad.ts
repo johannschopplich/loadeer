@@ -28,6 +28,16 @@ export default function (element: LoadeerElement, options: LoadeerOptions): void
     }
   }
 
+  if (element instanceof HTMLSourceElement) {
+    if (srcset) {
+      element.srcset = srcset
+      delete dataset.srcset
+
+      if (sizes)
+        element.sizes = sizes === 'auto' ? `${element.offsetWidth}px` : sizes
+    }
+  }
+
   if (element instanceof HTMLVideoElement && poster) {
     element.poster = poster
     delete dataset.poster

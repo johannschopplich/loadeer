@@ -1,4 +1,4 @@
-export type LoadeerElement = HTMLImageElement | HTMLVideoElement
+export type LoadeerElement = HTMLImageElement | HTMLSourceElement | HTMLVideoElement
 
 export type LoadeerInput<T extends HTMLElement> =
   | T
