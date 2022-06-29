@@ -11,9 +11,16 @@ export function onLoad(element: LoadeerElement, options: LoadeerOptions) {
     delete dataset.src
   }
 
-  if (element instanceof HTMLImageElement) {
+  if (element instanceof HTMLVideoElement) {
+    if (poster) {
+      element.poster = poster
+      delete dataset.poster
+    }
+  }
+  else {
     if (
-      useNativeLoading
+      element instanceof HTMLImageElement
+      && useNativeLoading
       && hasNativeLoadingSupport
       && element.loading !== 'lazy'
     )
@@ -26,20 +33,5 @@ export function onLoad(element: LoadeerElement, options: LoadeerOptions) {
       if (sizes)
         element.sizes = sizes === 'auto' ? `${element.offsetWidth}px` : sizes
     }
-  }
-
-  if (element instanceof HTMLSourceElement) {
-    if (srcset) {
-      element.srcset = srcset
-      delete dataset.srcset
-
-      if (sizes)
-        element.sizes = sizes === 'auto' ? `${element.offsetWidth}px` : sizes
-    }
-  }
-
-  if (element instanceof HTMLVideoElement && poster) {
-    element.poster = poster
-    delete dataset.poster
   }
 }
