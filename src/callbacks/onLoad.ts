@@ -30,8 +30,17 @@ export function onLoad(element: LoadeerElement, options: LoadeerOptions) {
       element.srcset = srcset
       delete dataset.srcset
 
-      if (sizes)
-        element.sizes = sizes === 'auto' ? `${element.offsetWidth}px` : sizes
+      if (sizes === 'auto') {
+        const isSource = element instanceof HTMLSourceElement
+        const width = isSource
+          ? element.parentElement?.getElementsByTagName('img')[0]?.offsetWidth
+          : element.offsetWidth
+
+        element.sizes = `${width}px`
+      }
+      else if (sizes) {
+        element.sizes = sizes
+      }
     }
   }
 }
