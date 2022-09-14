@@ -1,6 +1,6 @@
 {
   "name": "loadeer",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "packageManager": "pnpm@7.11.0",
   "description": "Tiny, performant, SEO-friendly lazy loading library",
   "author": {
