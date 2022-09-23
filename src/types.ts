@@ -1,10 +1,10 @@
 export type LoadeerElement = HTMLImageElement | HTMLSourceElement | HTMLVideoElement
 
 export type LoadeerInput<T extends HTMLElement> =
+  | string
   | T
   | T[]
   | NodeListOf<T>
-  | string
 
 export interface LoadeerOptions {
   root?: Element | Document
