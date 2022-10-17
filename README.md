@@ -109,7 +109,7 @@ instance.observe()
 
 ### Native Lazy Loading
 
-> ℹ️ Use with caution. Especially if placeholder images are used, the native lazy loading attribute interferes, since all `data-src` attributes will be converted to `src` once Loadeer.js runs. All placeholder images will be overwritten and if the images are loaded sower then the user scrolls, blank spaces will occur. Thus, Loadeer.js doesn't enable native lazy loading by default.
+> ℹ️ Use with caution. Especially if placeholder images are used, the native lazy loading attribute interferes, since all `data-src` attributes will be converted to `src` once Loadeer.js runs. All placeholder images will be overwritten and if the images are loaded slower than the user scrolls, blank spaces will occur. Thus, Loadeer.js doesn't enable native lazy loading by default.
 
 Browser support for `loading="lazy"` is decent. At the time writing, only Safari lacks support. If the option `useNativeLoading` is set to `true` and Loadeer.js detects the browser supports lazy loading, the `loading` attribute will be set to `lazy` and all `data-src` attributes changed to `src`. No intersection observer will be initialized.
 
