@@ -20,7 +20,7 @@ Loadeer.js is intended to be used with images.
 
 ### Key Features
 
-- 🍃 **Zero dependencies**: 0.8kb minified & brotli
+- 🍃 **Zero dependencies**: 0.9kB minified & gzipped
 - 🎀 **Native**: Uses [native `loading="lazy"`](#native-lazy-loading) if supported and enabled
 - 🏎 **Auto initialize**: with the `init` script attribute
 - 🪄 **Sizing**: Automatically calculates the `sizes` attribute
@@ -76,9 +76,9 @@ loadeer.observe()
 
 The short CDN URLs are meant for prototyping. For production usage, use a fully resolved CDN URL to avoid resolving and redirect cost:
 
-- Global build: https://unpkg.com/loadeer@2.1.0/dist/loadeer.iife.js
+- Global build: https://unpkg.com/loadeer@2.1.1/dist/loadeer.iife.js
   - Exposes `Loadeer` global property, supports auto initializing
-- ESM build: https://unpkg.com/loadeer@2.1.0/dist/loadeer.es.js
+- ESM build: https://unpkg.com/loadeer@2.1.1/dist/loadeer.es.js
   - Must be used with `<script type="module">`
 
 ## Usage
