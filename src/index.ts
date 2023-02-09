@@ -54,7 +54,6 @@ export default class Loadeer<T extends LoadeerElement> {
 
   /**
    * Load an element before it gets visible in the viewport
-   * (intended for browsers without `loading` attribute support)
    */
   public triggerLoad(element: T): void {
     if (isLoaded(element))

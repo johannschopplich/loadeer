@@ -202,7 +202,7 @@ Defaults to `[data-lazyload]`. Allowed types are:
 
 - `string`
 - `HTMLImageElement`
-- `Array<HTMLImageElement>`
+- `HTMLImageElement[]`
 - `NodeListOf<HTMLImageElement>`
 
 #### LoadeerOptions
