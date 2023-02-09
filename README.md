@@ -14,7 +14,7 @@
 
 > Performant, SEO-friendly and configurable library to lazily load images using the `IntersectionObserver` API.
 
-If you have used [Lozad.js](https://github.com/ApoorvSaxena/lozad.js), then you already know how to use Loadeer.js. This library is basically an overhauled and opiniated version of Lozad.js, which includes `sizes` support, makes usage of `data` attributes instead of classes and is written in TypeScript.
+If you have used [Lozad.js](https://github.com/ApoorvSaxena/lozad.js), then you already know how to use Loadeer.js. This library is basically an overhauled and opinionated version of Lozad.js, which includes `sizes` support, makes usage of `data` attributes instead of classes and is written in TypeScript.
 
 Loadeer.js is intended to be used with images.
 
@@ -85,7 +85,7 @@ The short CDN URLs are meant for prototyping. For production usage, use a fully 
 
 ### Basic
 
-Add the `data-lazyload` attribute to an element of your choice which you seek to lazily load. Set an `data-src` or `data-srcset` attribute as well.
+Add the `data-lazyload` attribute to an element of your choice which you seek to lazily load. Set a `data-src` or `data-srcset` attribute as well.
 
 ```html
 <!-- You can use the img tag -->
