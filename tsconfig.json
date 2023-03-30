@@ -5,7 +5,7 @@
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "jsx": "preserve",
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "types": ["vite/client"],
     "resolveJsonModule": true,
     "declaration": true,

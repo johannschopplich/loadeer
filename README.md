@@ -176,7 +176,7 @@ observer.triggerLoad(coolImage)
 Pass a `onLoaded` function to either manipulate the loaded element or do anything else with it.
 
 ```js
-const onLoaded = (element) => {
+function onLoaded(element) {
   console.log('Lazily loaded element:', element)
 }
 
