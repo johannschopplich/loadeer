@@ -1,7 +1,7 @@
 {
   "name": "loadeer",
   "version": "2.1.2",
-  "packageManager": "pnpm@8.1.0",
+  "packageManager": "pnpm@8.1.1",
   "description": "Tiny, performant, SEO-friendly lazy loading library",
   "author": {
     "name": "Johann Schopplich",
@@ -46,13 +46,13 @@
     "release": "tsc --noEmit && bumpp --all --commit --push --tag"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.38.0",
+    "@antfu/eslint-config": "^0.38.4",
     "@types/node": "^18.15.11",
     "bumpp": "^9.1.0",
-    "eslint": "^8.37.0",
-    "lint-staged": "^13.2.0",
+    "eslint": "^8.38.0",
+    "lint-staged": "^13.2.1",
     "simple-git-hooks": "^2.8.1",
-    "typescript": "^5.0.2",
+    "typescript": "^5.0.4",
     "vite": "^4.2.1"
   },
   "simple-git-hooks": {
