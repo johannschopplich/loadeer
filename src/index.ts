@@ -1,9 +1,5 @@
 import { isLoaded, onIntersection, onLoad } from './callbacks'
-import {
-  hasNativeLoadingSupport,
-  isCrawler,
-  toElementsArray,
-} from './utils'
+import { isCrawler, toElementsArray } from './utils'
 import type { LoadeerElement, LoadeerInput, LoadeerOptions } from './types'
 
 export type { LoadeerElement, LoadeerInput, LoadeerOptions }
@@ -25,7 +21,7 @@ export default class Loadeer<T extends LoadeerElement> {
       useNativeLoading = false,
     } = this.options
 
-    if (!useNativeLoading || !hasNativeLoadingSupport) {
+    if (!useNativeLoading) {
       this.observer = new IntersectionObserver(onIntersection(this.options), {
         root,
         rootMargin,
@@ -42,7 +38,7 @@ export default class Loadeer<T extends LoadeerElement> {
       if (isLoaded(element))
         continue
 
-      if ((useNativeLoading && hasNativeLoadingSupport) || isCrawler) {
+      if (useNativeLoading || isCrawler) {
         onLoad(element, this.options)
         onLoaded?.(element)
       }

@@ -1,4 +1,3 @@
-import { hasNativeLoadingSupport } from '../utils'
 import type { LoadeerElement, LoadeerOptions } from '../types'
 
 export function onLoad(
@@ -23,7 +22,6 @@ export function onLoad(
   if (
     element instanceof HTMLImageElement
     && useNativeLoading
-    && hasNativeLoadingSupport
     && element.loading !== 'lazy'
   )
     element.loading = 'lazy'
