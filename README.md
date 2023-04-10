@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./.github/icon.svg" alt="Logo of Loadeer.js" width="114" height="114">
+  <img src="./.github/icon.svg" alt="Loadeer.js Logo" width="180" height="180">
 </p>
 
 <h3 align="center">Loadeer.js</h3>
@@ -12,18 +12,16 @@
 
 ## Loadeer.js
 
-> Performant, SEO-friendly and configurable library to lazily load images using the `IntersectionObserver` API.
-
 If you have used [Lozad.js](https://github.com/ApoorvSaxena/lozad.js), then you already know how to use Loadeer.js. This library is basically an overhauled and opinionated version of Lozad.js, which includes `sizes` support, makes usage of `data` attributes instead of classes and is written in TypeScript.
 
-Loadeer.js is intended to be used with images.
+Loadeer.js is intended to be used with `<img>`, `<picture>` and `<video>` tags. It supports the `srcset` and `sizes` attributes, as well as the `loading` attribute. It is also possible to use the `data` attributes instead of the native attributes.
 
 ### Key Features
 
-- 🍃 **Zero dependencies**: 0.9kB minified & gzipped
-- 🎀 **Native**: Uses [native `loading="lazy"`](#native-lazy-loading) if supported and enabled
+- 🍃 **Zero dependencies**: 1 kB minified & gzipped
 - 🏎 **Auto initialize**: with the `init` script attribute
 - 🪄 **Sizing**: Automatically calculates the `sizes` attribute
+- 🎀 **Native**: Use [native `loading="lazy"`](#native-lazy-loading) if you prefer
 - 🔧 **Customizable**: Use `data` attributes for image sources
 - 🎟 **`<picture>`**: Supports multiple image formats
 - 🔍 **SEO-friendly**: Detects e.g. Google Bot and preloads all images
@@ -38,7 +36,6 @@ Loadeer.js can be used without a build step. Simply load it from a CDN:
 <!-- Anywhere on the page -->
 <img
   data-lazyload
-  data-src="/foo.png"
   data-srcset="/foo.png 1024w, /foo-2x.png 2048w"
 />
 
@@ -63,7 +60,7 @@ If you don't want the auto initialize, remove the `init` attribute and move the 
 </script>
 ```
 
-Or, use the ES module build by installing the `loadeer` npm package:
+Or, use the ES module build by installing the [`loadeer` npm package](https://www.npmjs.com/package/loadeer):
 
 ```js
 import Loadeer from 'loadeer'
@@ -76,9 +73,9 @@ loadeer.observe()
 
 The short CDN URLs are meant for prototyping. For production usage, use a fully resolved CDN URL to avoid resolving and redirect cost:
 
-- Global build: https://unpkg.com/loadeer@2.1.2/dist/loadeer.iife.js
+- Global build: https://unpkg.com/loadeer@2.1.3/dist/loadeer.iife.js
   - Exposes `Loadeer` global property, supports auto initializing
-- ESM build: https://unpkg.com/loadeer@2.1.2/dist/loadeer.es.js
+- ESM build: https://unpkg.com/loadeer@2.1.3/dist/loadeer.es.js
   - Must be used with `<script type="module">`
 
 ## Usage
@@ -109,7 +106,9 @@ instance.observe()
 
 ### Native Lazy Loading
 
-> ℹ️ Use with caution. Especially if placeholder images are used, the native lazy loading attribute interferes, since all `data-src` attributes will be converted to `src` once Loadeer.js runs. All placeholder images will be overwritten and if the images are loaded slower than the user scrolls, blank spaces will occur. Thus, Loadeer.js doesn't enable native lazy loading by default.
+> **Note**
+>
+> Use with caution. Especially if placeholder images are used, the native lazy loading attribute interferes, since all `data-src` attributes will be converted to `src` once Loadeer.js runs. All placeholder images will be overwritten and if the images are loaded slower than the user scrolls, blank spaces will occur. Thus, Loadeer.js doesn't enable native lazy loading by default.
 
 Browser support for `loading="lazy"` is decent. At the time writing, only Safari lacks support. If the option `useNativeLoading` is set to `true` and Loadeer.js detects the browser supports lazy loading, the `loading` attribute will be set to `lazy` and all `data-src` attributes changed to `src`. No intersection observer will be initialized.
 
@@ -194,20 +193,25 @@ Both the [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/Interse
 
 ## API
 
-### new Loadeer(selector, options: LoadeerOptions = {})
+### `new Loadeer(selector, options: LoadeerOptions = {})`
 
-#### Selector
+#### `Selector`
 
-Defaults to `[data-lazyload]`. Allowed types are:
+Defaults to `[data-lazyload]`. Allowed types are every valid CSS selector string, an element, an array of elements, or a `NodeListOf` elements:
 
-- `string`
-- `HTMLImageElement`
-- `HTMLImageElement[]`
-- `NodeListOf<HTMLImageElement>`
+```ts
+type LoadeerElement = HTMLImageElement | HTMLSourceElement | HTMLVideoElement
 
-#### LoadeerOptions
+type LoadeerInput<T extends HTMLElement> =
+  | string
+  | T
+  | T[]
+  | NodeListOf<T>
+```
 
-> Note: Every property is optional to pass to the Loadeer.js constructor.
+#### `LoadeerOptions`
+
+> Note: Every property is optional and will be set to its default value if not provided.
 
 | Option             | Default     | Type                                          | Description                                                                                                                                      |
 | ------------------ | ----------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
