@@ -10,6 +10,12 @@
 
 <br>
 
+> **Note**
+>
+> It's 2023 – by now most browsers support native lazy loading with `loading="lazy"`. If you're looking for a library that combines native lazy loading with blurry placeholder support, I recommend [unlazy](https://github.com/johannschopplich/unlazy). It's the spiritual successor of Loadeer.js.
+>
+> [unlazy](https://github.com/johannschopplich/unlazy) has a smaller footprint and doesn't require an Intersection Observer. I recommend using it instead of Loadeer.js.
+
 ## Loadeer.js
 
 If you have used [Lozad.js](https://github.com/ApoorvSaxena/lozad.js), then you already know how to use Loadeer.js. This library is basically an overhauled and opinionated version of Lozad.js, which includes `sizes` support, makes usage of `data` attributes instead of classes and is written in TypeScript.
