@@ -227,6 +227,14 @@ type LoadeerInput<T extends HTMLElement> =
 | `onLoaded`         | `undefined` | `(element: HTMLElement) => void`, `undefined` | Custom function to run after each image is loaded.                                                                                               |
 | `useNativeLoading` | `false`     | `boolean`, `undefined`                        | Indicates if the native `loading="lazy"` attribute should be used (if supported by the browser).                                                 |
 
+## Cookbook
+
+### Animated Blurry Placeholder with GSAP
+
+A fellow Kirby developer ([Thomas Günther](https://github.com/medienbaecker)) using Loadeer.js in a project of his came up with a nice idea to use a blurry placeholder image with a blurred version of the actual image. The code below will create a smooth animation effect for the image placeholders, transitioning from a blurry state to the fully loaded image, using the powerful GSAP library for animations.
+
+👉 [Animate blurry-placeholder with Loadeer and GSAP on CodePen](https://codepen.io/medienbaecker/pen/yLEMdoN)
+
 ## SEO
 
 Loadeer.js does not hide elements from Google. The library detects whether the user agent is probably a bot or crawler and will load all images.
